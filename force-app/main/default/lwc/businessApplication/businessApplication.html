@@ -1,0 +1,204 @@
+<template>
+    <lightning-card>
+        <div class="slds-size_2-of-4 slds-align_absolute-center slds-p-around_small slds-m-bottom_x-small" style="background-color: rgb(29,50,100); color: white; border-radius: 5px;">
+            Business Application
+        </div>
+            <div class="slds-grid slds-wrap slds-size_2-of-4 slds-no-space slds-align_absolute-center">
+                <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                    <span><b><u>Producer Information</u></b></span>
+                    <lightning-textarea name="produceInformation"></lightning-textarea>
+                </div>
+
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                        <span><b><u>Application Information</u></b></span>
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-input name="fullName" type="text" label="Full Legal Name"></lightning-input>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-input name="FefectiveDate" type="date" label="Efective date"></lightning-input>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-input name="federalId" type="text" label="Federal ID:"></lightning-input>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-input name="website" type="text" label="Website"></lightning-input>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-textarea name="address"  label="Physical or Mailling Address"></lightning-textarea>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-textarea name="detailDescription"  label="Please provide a detailed description of operations"></lightning-textarea>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-checkbox-group name="typeofBusiness"
+                              label="Type of Business"
+                              options={businessOptions}
+                              value={businessValue} 
+                              onchange={businessHandleChange}>
+                        </lightning-checkbox-group>
+                        <template if:true={otherBusiness}>
+                            <lightning-input name="otherBusinessType" type="text" ></lightning-input>
+                        </template>
+                        <template if:false={otherBusiness}>
+                            <lightning-input name="otherBusinessType" type="text" disabled></lightning-input>
+                        </template>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-checkbox-group name="typeofIndustry"
+                              label="Industry Type"
+                              options={industryOptions}
+                              value={industryValue} 
+                              onchange={industryHandleChange}>
+                        </lightning-checkbox-group>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Will state act coverage be required? (If a State Act policy is required, please supply completed and signed
+                        ACORD application, along with 5-year loss history and E-Mod worksheets.)"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                        <span><b><u>General InFormation</u></b></span>
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Does applicant own, operate, or lease aircraft/watercraft?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Any work performed on barges, vessels, docks, or bridge over water?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Is applicant engaged in any other type of business?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Are sub-contractors used? (If yes give % of work subcontracted)"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Any work sublet without certificates of insurance?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Is a written safety program in operation?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Any group transportation provided?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Are physicals required after offers of employment are made?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Any prior coverage cancelled/non-renewed? (last 3 years)"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Are employee health plans provided?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Is there a labor interchange with any other business/subsidiary?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Do you lease employees to or from other employers?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-radio-group name="actCoverage"
+                        label="Any tax liens or bankruptcy within the last 5 years?"
+                        options={options}
+                        value={actCoverageValue}
+                        required
+                        type="button"></lightning-radio-group> 
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                         
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-checkbox-group name="EndorsementsCoverage"
+                              label="Specify Endorsements and Coverages required"
+                              options={ecRequireOptions}
+                              value={ecRequireValue} 
+                              onchange={ecRequireHandleChange}>
+                        </lightning-checkbox-group>
+                        <template if:true={ecRequire}>
+                            <lightning-input name="ecRequireOther" type="text" ></lightning-input>
+                        </template>
+                        <template if:false={ecRequire}>
+                            <lightning-input name="ecRequireOther" type="text" disabled></lightning-input>
+                        </template>
+                    </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                     </div>
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-textarea name="watercraft"  label="Does Applicant own/operate/lease/charter any watercraft? If yes, please provide
+                        full details and attach a list of vessels and proof of coverage."></lightning-textarea>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-textarea name="divingOperations"  label="Any diving operations? If yes, please provide full details and proof of coverage."></lightning-textarea>
+                    </div> 
+                    <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <lightning-textarea name="ride"  label="Do employees have the operational need to ride a vessel of any type while underway or being moved? If yes, please provide full details."></lightning-textarea>
+                    </div> 
+                </div>
+        </lightning-card>
+</template>
