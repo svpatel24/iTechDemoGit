@@ -1,0 +1,208 @@
+<template>
+    <lightning-card>
+        <div class="slds-size_2-of-4 slds-align_absolute-center slds-p-around_small slds-m-bottom_x-small"
+            style="background-color: rgb(29,50,100); color: white; border-radius: 5px;">
+            Employer Application
+        </div>
+        <div class="employ-component slds-grid slds-wrap slds-size_2-of-4 slds-no-space slds-align_absolute-center">
+
+            <div class="slds-grid slds-wrap slds-m-top_medium">
+
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_9-of-12">
+                    <lightning-input name="Full_Name" type="text" label="ENTER FULL NAME"></lightning-input>
+                </div>
+
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-input name="Related_Employ_Name_1" type="text"
+                        label="Enter Related Employ Name 1."></lightning-input>
+                </div>
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-input name="Related_Employ_Name_2" type="text"
+                        label="Enter Related Employ name 2."></lightning-input>
+                </div>
+
+
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-input name="fullName" type="text" label="Effective date:"></lightning-input>
+                </div>
+                <div
+                    class="slds-m-top_mediumslds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-input name="Federalid" type="text" label="Federal ID:"></lightning-input>
+                </div>
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-input name="PhysicalAddress" type="text"
+                        label="Physical Address of Related Employer and Mailing Address if different:"></lightning-input>
+                </div>
+
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                    <table>
+                        <tr>
+                            <th>Contact Type</th>
+                            <th class="slds-p-right_medium" style="text-align: center;">Name</th>
+                            <th class="slds-p-right_medium" style="text-align: center;">Phone Number</th>
+                            <th class="slds-p-right_medium" style="text-align: center;">Email Address</th>
+                        </tr>
+                        <tr>
+                            <td>Main Contact</td>
+                            <td class="slds-p-right_medium"><lightning-input name="Main_Contact_Name"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input name="Main_Contact_Phone_Number"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input name="Main_Contact_Email_Address"
+                                    type="text"></lightning-input></td>
+                        </tr>
+                        <tr>
+                            <td>Accounting/Payroll Contact</td>
+                            <td class="slds-p-right_medium"><lightning-input name="Accounting/Payroll_Contact_Name"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input
+                                    name="Accounting/Payroll_Contact_Phone_Number" type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input
+                                    name="Accounting/Payroll_Contact_Email_Address" type="text"></lightning-input></td>
+                        </tr>
+                        <tr>
+                            <td>Safety Contact</td>
+                            <td class="slds-p-right_medium"><lightning-input name="Safety_Contact_Name"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input name="Safety_Contact_Phone_Number"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input name="Safety_Contact_Email_Address"
+                                    type="text"></lightning-input></td>
+                        </tr>
+                        <tr>
+                            <td>Claims Contact</td>
+                            <td class="slds-p-right_medium"><lightning-input name="Claims_Contact_Name"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input name="Claims_Contact_Phone_Number"
+                                    type="text"></lightning-input></td>
+                            <td class="slds-p-right_medium"><lightning-input name="Claims_Contact_Email_Address"
+                                    type="text"></lightning-input></td>
+                        </tr>
+                    </table>
+                </div>
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-checkbox-group name="industry type"
+                        label="Please indicate the Related Employer’s industry type:" options={options} value={value}
+                        onchange={handleChange}>
+                    </lightning-checkbox-group>
+                </div>
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-checkbox-group name="business history"
+                        label="Please provide Related Employer’s business history details." options={businessoptions}
+                        value={businessvalue} onchange={businesshistory}>
+                    </lightning-checkbox-group>
+                </div>
+
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_10-of-12 slds-medium-size_10-of-12 slds-size_10-of-12">
+                    <lightning-textarea name="description detailed" type="textarea"
+                        label="Please provide a detailed description of operations."></lightning-textarea>
+                </div>
+
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                    <span>
+                        Please provide the ports or locations the Related Employer will be working out of.
+                    </span>
+
+                </div>
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-radio-group name="reporting main Member" type="button"
+                        label="Will the related employer be reporting their payroll separately from the main Member?"
+                        options={mainmember} value={membervalue} onchange={member}>
+                    </lightning-radio-group>
+                </div>
+
+                <div
+                    class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-radio-group name="wire employer" type="button"
+                        label="Will the related employer be initiating their own wire employer?" options={relatedemploy}
+                        value={employvalue} onchange={employemployer}>
+                    </lightning-radio-group>
+                </div>
+
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <lightning-radio-group name="state act coverage" type="button"
+                        label="Will the Related Employer require state act coverage?" options={statecoverage}
+                        value={coveragevalue} onchange={coverage}>
+                    </lightning-radio-group>
+                </div>
+
+                <div class="slds-m-top_medium slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_10-of-12 slds-medium-size_10-of-12 slds-size_10-of-12"
+                    style="font-size: 12px;">
+                    <span><b><strong><u>Incidental & Hard MEL/Crew Operational Exposures</u></strong></b>
+                    </span>
+                </div>
+                <div
+                    class=" slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <span> • Will the Related Employer own, lease, charter or borrow any watercraft on a navigable
+                        waterway?
+                    </span>
+                    <lightning-radio-group name="watercraft_navigable" type="button" options={charterborrow}
+                        value={borrowvalue} onchange={charterorborrow}>
+                    </lightning-radio-group>
+                </div>
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <span> • Will the Related Employer employ anyone as a Master or Member of the crew of any watercraft
+                        on a navigable waterway?
+                    </span>
+                    <lightning-radio-group name="Master_Member" type="button" options={MasterMember} value={crewvalue}
+                        onchange={MastetMembercrew}>
+                    </lightning-radio-group>
+                </div>
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <span>• Will the Related Employer allow anyone to perform any work on or from a watercraft under
+                        navigation?</span>
+                    <lightning-radio-group name="Employ_perform_any_work" type="button" options={performwork}
+                        value={performvalue} onchange={performanywork}>
+                    </lightning-radio-group>
+                </div>
+
+                <div
+                    class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <span>• Will the Related Employer contract any work to be performed on or from a watercraft under
+                        navigation without reviewing proof of maritime coverages for the contractor’s workers??</span>
+                    <lightning-radio-group name="without_reviewing_maritime_coverages" type="button"
+                        options={maritimecoverages} value={contractorvelue} onchange={maritimecoveragescontractor}>
+                    </lightning-radio-group>
+                </div>
+
+                <div class="slds-p-horizontal--small slds-p-vertical_small slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12"
+                    style="font-size: 15px;">
+                    <span><b><u><strong>* BY SIGNING THIS APPLICATION, THE SIGNOR WARRANTS THAT TO
+                                    HIS/HER BEST KNOWLEDGE, ALL INFORMATION GIVEN IS TRUE AND
+                                    ACCURATE.</strong></u></b>
+                    </span>
+                
+                    <div
+                        class="slds-align_absolute-left  slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                        <lightning-input name="APPLICATION_Name" type="text" label="Name."></lightning-input>
+                    </div>
+                    <br>
+                    <div class="slds-align_absolute-left slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                        <lightning-input name="APPLICATION_Date" type="text" label="Date."></lightning-input>
+                    </div>
+                    <br>
+                    <div
+                        class="slds-align_absolute-left slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                        <lightning-input name="APPLICATION_Signature" type="text" label="Signature."></lightning-input>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
