@@ -1,0 +1,56 @@
+<template>
+    <lightning-card style="padding: 10px;">
+        <div style="padding-left: 15px;font-size: x-large;font-weight: 600;">
+            Email a Quote
+        </div>
+        <!-- Dynamic Data Section -->
+        <div class="slds-grid slds-gutters" style="padding-left: 20px; padding-right: 20px;">
+            <div class="slds-col slds-size_1-of-2" style="padding: 10px;">
+                <lightning-layout-item size="12">
+                    <p><strong>Face:</strong> {face}</p>
+                    <p><strong>Class:</strong> {classType}</p>
+                    <p><strong>Waiver:</strong> {waiver}</p>
+                    <p><strong>Rating:</strong> {rating}</p>
+                </lightning-layout-item>
+            </div>
+            <div class="slds-col slds-size_1-of-2" style="padding: 10px;">
+                <lightning-layout-item size="12">
+                    <p><strong>State:</strong> {state}</p>
+                    <p><strong>Age:</strong> {age}</p>
+                    <p><strong>Child Rider:</strong> {childRider}</p>
+                    <p><strong>Flat Extra:</strong> {flatExtra}</p>
+                </lightning-layout-item>
+            </div>
+        </div>
+
+        <!-- View By Selection -->
+        <div style="padding-left: 20px;">
+            <lightning-radio-group label="View By" options={viewByOptions} value={viewBy} onchange={handleViewByChange}
+                type="button">
+            </lightning-radio-group>
+        </div>
+
+        <!-- Email Form Section -->
+        <div class="slds-grid slds-gutters" style="padding: 20px;">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input label="Send To Name" value={sendToName} onchange={handleInputChange}
+                    data-id="sendToName"></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input label="Send To Email" value={sendToEmail} type="email" onchange={handleInputChange}
+                    data-id="sendToEmail"></lightning-input>
+            </div>
+        </div>
+        <div style="padding-right: 20px;padding-left: 20px;">
+            <lightning-input type="checkbox" label="Include Cover Letter" checked={includeCoverLetter}
+                onchange={handleCheckboxChange}></lightning-input>
+            <lightning-textarea label="Personalized Message" value={personalizedMessage} onchange={handleInputChange}
+                data-id="personalizedMessage" style="padding-top: 15px;"></lightning-textarea>
+        </div>
+
+        <!-- Send Button -->
+        <div style="padding: 20px;">
+            <lightning-button label="Send Email" onclick={sendEmail} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

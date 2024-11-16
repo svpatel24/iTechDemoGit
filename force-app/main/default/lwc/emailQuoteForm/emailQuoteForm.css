@@ -1,0 +1,14 @@
+.title {
+    font-size: 1.5rem;
+    /* Change this value for larger font size */
+}
+
+.custom-label {
+    font-size: 1.2rem;
+    /* Increase this value to make labels larger */
+}
+
+/* Customize the checkbox label font */
+.lightning-input.checkbox.custom-label label {
+    font-size: 1.2rem;
+}

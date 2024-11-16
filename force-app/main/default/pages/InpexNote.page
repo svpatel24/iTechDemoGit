@@ -1,0 +1,107 @@
+<apex:page renderAs="pdf" showHeader="false" controller="DeliveryNoteController">
+    <div style="margin-top: 0cm;">
+        <table style="width: 100%; margin-top: 0px; border-collapse: collapse;"> 
+            <tr><td style="width: 20%;">
+                <apex:image url="{!$Resource.HarvestLogo}" width="120" height="120"/>
+                </td>
+                <td style="width: 40%; vertical-align: top;">
+                    <div style="margin-top: 15px; line-height: 1.3" >
+                        <strong>Harvest Technology Pty Ltd</strong><br/>
+                        7 Turner Avenue<br/>
+                        Technology Park<br/>
+                        BENTLEY WA 6102<br/>
+                        Australia<br/>
+                        ABN : 52 601 194 138<br/>
+                    </div>
+                </td>
+                <td style="width: 40%; vertical-align: top;">
+                    <div style="text-align: right; margin-bottom: 20px;">
+                        <div style="text-align: left; margin-top: 40px;">
+                            <h2 style="margin: 0;">Delivery Note: 233</h2>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
+            <tr>
+                <td style="width: 60%; vertical-align: top;">
+                    <div style="text-align: left;">
+                        <p>
+                            Date: {!date}<br/>
+                            Contact: {!contact}<br/>
+                            Email: {!email}<br/>
+                        </p>
+                    </div>    
+                </td>
+                <td style="width: 40%; vertical-align: top;">
+                    <div style="text-align: left;">
+                        <p>
+                            Delivery To:<br/>
+                            {!deliveryTo}
+                        </p>
+                    </div>  
+                </td>
+            </tr>    
+        </table>
+        
+        
+        <table style="width: 100%; border-collapse: collapse; margin-top: 0px; ">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black; padding: 5px; text-align: left; background-color: #f2f2f2;">Product</th>
+                    <th style="border: 1px solid black; padding: 5px; text-align: left; background-color: #f2f2f2;">Serial Number</th>
+                    <th style="border: 1px solid black; padding: 5px; text-align: left; background-color: #f2f2f2;">QTY</th>
+                    <th style="border: 1px solid black; padding: 5px; text-align: left; background-color: #f2f2f2;">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!products}" var="product">
+                    <tr>
+                        <td style="border: 1px solid black; padding: 4px; font-size:11px; text-align: left;">{!product.name}</td>
+                        <td style="border: 1px solid black; padding: 4px; font-size:11px; text-align: right;">{!product.serialNumber}</td>
+                        <td style="border: 1px solid black; padding: 4px; font-size:11px; text-align: center;">{!product.qty}</td>
+                        <td style="border: 1px solid black; padding: 4px; font-size:11px; text-align: right;">{!product.notes}</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+        <table style="margin-top: 15px; width:100%">
+            <tr>
+                <td style="width: 70%;">
+                    <div><strong>Shipping Instruction:</strong> 
+                    </div>
+                </td>
+                <td style="width: 30%;">
+                    <div ><strong>Gross Weight (kg):</strong> {!grossWeight}
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style="margin-top: 40px;">
+            
+            
+        </div>
+        <div >
+            <div style="margin-bottom: 10px;">Received By:</div>
+            <table style="width:70%;">
+                <tr>
+                    <td  style="width:5%;">Name:</td>
+                    <td colspan="3" style="border-bottom: 1px solid black;">{!email}</td>
+                </tr>
+                <tr>
+                    <td style="width:5%;">Signature:</td>
+                    <td style="width:40%; border-bottom: 1px solid black;"></td>
+                    <td style="width:3%;">Date:</td>
+                    <td style="border-bottom: 1px solid black;width:22%;"></td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            By signature the undersigned confirms that this delivery has been received. You must notify us of any products that are defective within 7 days of this acceptance in accordance with Harvest Technology Pty Ltd Terms and Conditions. 
+        </p>
+        <p>
+            Return via email to logistics@harvest-tech.com.au
+        </p>
+    </div>
+</apex:page>
